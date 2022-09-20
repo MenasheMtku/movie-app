@@ -11,7 +11,7 @@ body{
   
   color: #fff;
   height: 100%;
-  font-family:cursive;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .py-1{ padding: 10px 0;}
 .py-2{ padding: 20px 0;}
@@ -51,6 +51,8 @@ h1, h2, h3{
   padding: 0 20px;
 }
 
+
+
 #form-info{
   text-align: center;
   padding-top: 170px;
@@ -75,30 +77,38 @@ h1, h2, h3{
 }
 
 /* results page */
+
+.flex-container{
+  display: flex;
+  max-width: 1100px;
+}
 .movies{
- width: 900px;
- /* min-height: 100%; */
- margin: 0 auto;
+  display: flex;
+  width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  /* flex-shrink: 1; */
+}
+
+.movie-item{
+  /* display: inline-block;
+  border: 1px solid #fff; */
+  padding: 5px auto;
+  margin: 5px;
+  /* width: 30%; */
+  text-align: center;
+  
+}
+.movie-item img{
+  /* width: 50px;
+  height: 90px; */
+  width: 210px;
+  height: 300px;
 }
 
 .l-header{
   font-size: 45px;
-  padding: 25px 0;
+  /* padding: 0 auto; */
   text-align: center;
-}
-
-.movie-item{
-  display: inline-block;
-  border: 1px solid #fff;
-  padding: 5px;
-  margin: 5px;
-  width: 30%;
-  text-align: center;
-}
-.movie-item img{
-  width: 50px;
-  height: 90px;
-  /* width: 210px;
-  height: 300px; */
 }
 
