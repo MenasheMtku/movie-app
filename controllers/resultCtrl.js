@@ -16,6 +16,9 @@ exports.resultRoute = (req,res)=>{
       res.render('searchResults', { data: data, serachQury: serachQury});
       // res.render({search: search});
     }
+    // if(error){
+    //   res.render('searchError',)
+    // }
     // console.log(search[0]);
   });
 }

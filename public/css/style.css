@@ -81,10 +81,12 @@ h1, h2, h3{
   max-width: 1100px;
 }
 .movies{
+  /* background-color: #f4f4f4; */
   display: flex;
   width: 1100px;
   margin: 0 auto;
   flex-wrap: wrap;
+  justify-content: center;
   /* flex-shrink: 1; */
 }
 
