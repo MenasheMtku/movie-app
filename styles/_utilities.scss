@@ -1,0 +1,50 @@
+@import "config";
+
+.container {
+  margin: 0 auto;
+  max-width: $website-width;
+  padding: 0 1rem;
+}
+%btn-shared {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  transition: all 0.5s;
+  border: none;
+  cursor: pointer;
+}
+
+.action-btn {
+  @extend %btn-shared;
+  // color: $light-color;
+  // background-color: $dark-color;
+  letter-spacing: 1.4px;
+  font-size: 1.2rem;
+}
+.py {
+  &-1 {
+    padding: 1rem 0;
+  }
+  &-2 {
+    padding: 2rem 0;
+  }
+  &-3 {
+    padding: 3rem 0;
+  }
+  &-4 {
+    padding: 4rem 0;
+  }
+}
+.my {
+  &-1 {
+    margin: 1rem 0;
+  }
+  &-2 {
+    margin: 2rem 0;
+  }
+  &-3 {
+    margin: 3rem 0;
+  }
+  &-4 {
+    margin: 4rem 0;
+  }
+}

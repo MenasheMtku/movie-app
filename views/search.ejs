@@ -1,33 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <title>Search Movie</title>
+    <%- include('partials/head') %>
   </head>
   <body>
-    <!-- <h1>Hey there</h1> -->
-    <header>
-      <div class="background">
-        <div class="container">
-          <div id="form-info">
-            <h1>Search For a Movie</h1>
-            <form class="form-input py-2" action="/results" method="GET">
-              <input
-                class="py-1"
-                type="text"
-                placeholder="Movie Name"
-                name="search"
+    <div class="background">
+      <header><%- include ('partials/header') %></header>
+      <div class="container">
+        <div class="flex-container py-2">
+          <div class="py-1">
+            <h4>Trending Movies</h4>
+          </div>
+          <div class="movies">
+            <% data["results"].forEach(function(movie){ %>
+
+            <div class="movie-item">
+              <div class="movie-rating">
+                <p>HQ</p>
+              </div>
+              <img
+                class="movie-image"
+                loading="lazy"
+                src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/<%=movie['poster_path']%>"
               />
-              <!-- <button class="btn" type="submit" name="search">
-                Search here
-              </button> -->
-            </form>
+              <div class="movie-details">
+                <div class="movie-name">
+                  <a href=""><%= movie["original_title"] %></a>
+                </div>
+                <div class="movie-release-date">
+                  <small><%= movie["release_date"]%></small>
+                </div>
+              </div>
+            </div>
+
+            <% }) %>
           </div>
         </div>
+        <!-- <div id="form-info">
+          <h1>Search For a Movie</h1>
+          <form class="form-input py-2" action="/results" method="GET">
+            <input
+              class="py-1"
+              type="text"
+              placeholder="Type here..."
+              name="search"
+            />
+          </form>
+        </div> -->
       </div>
-    </header>
+    </div>
   </body>
 </html>

@@ -1,2 +1,141 @@
+@import "reset";
 @import "utilities";
 @import "config";
+@import "results";
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  // min-height: 100%;
+  min-height: 100vh;
+}
+
+// #wrapper {
+//   width: 100%;
+//   position: relative;
+// }
+#main-nav {
+  position: sticky;
+  top: 0;
+  color: #333;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: $website-width;
+    // margin: 0 2%;
+    // padding: 10px 0.5rem;
+
+    .nav-section-one {
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      column-gap: 3rem;
+      align-items: baseline;
+    }
+  }
+
+  .logo {
+    margin-top: 0.5rem;
+    color: $light-color;
+
+    :first-child {
+      font-size: 3rem;
+    }
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+  }
+  li {
+    // padding: 0.5rem 1rem;
+    margin: 0.55rem 0.6rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: $light-color;
+    font-size: 1.2rem;
+    font-weight: 300;
+    // font-weight: bold;
+  }
+}
+
+.background {
+  background: url(../img/netflix.jpg) no-repeat center center/cover;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    min-height: 100%;
+    width: 100%;
+    // background-color: black;
+    // opacity: 0.7;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: -1;
+  }
+}
+
+#form-info {
+  // display: flex;
+  // flex-direction: column;
+  // height: 65vh;
+  // justify-content: center;
+  // text-align: center;
+  // padding: 0 auto;
+}
+
+// #form-info h1 {
+//   text-transform: uppercase;
+//   letter-spacing: 0.4rem;
+//   color: hsl(331, 57%, 46%);
+// }
+#form-info .form-input input::placeholder {
+  color: black;
+  /* text-align: center; */
+}
+#form-info .form-input input {
+  display: block;
+  margin: 0 auto;
+  // width: 50%;
+  outline: none;
+  border: 0;
+  color: black;
+  font-weight: 600;
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 0.8rem 1.2rem;
+  background-color: #d8d5d5;
+}
+
+#form-info .form-input .btn {
+  // margin-top: 10px;
+  // padding: 10px 15px;
+}
+
+.movie-item.movie-item img:hover {
+  transform: scale(1.1);
+  // opacity: 0.8;
+  animation: scale_image 0.3s forwards ease-out;
+
+  @keyframes scale_image {
+    0% {
+      transform: scale(1);
+    }
+  }
+}
+
+// Import Media Queries
+@import "media";

@@ -1,24 +1,21 @@
 const request = require("request");
 // const bodyParser = require('body-parser');
 
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
-
 exports.resultRoute = (req, res) => {
-  let key = "&apikey=thewdb";
-  let query = req.query.search + "" + key;
-  let url = "http://www.omdbapi.com/?s=" + query;
+  const key = "api_key=56ba362e2422be1b78424f3341e0e989";
+  let baseurl = "https://api.themoviedb.org/3";
+  let query = req.query.search;
+
+  let newUrl = baseurl + "/search/movie?query=" + `${query + "&"}` + `${key}`;
   let searchQuery = req.query.search;
 
-  request(url, function (error, respond, body) {
+  request(newUrl, function (error, respond, body) {
     if (!error && respond.statusCode) {
       let data = JSON.parse(body);
       res.render("searchResults", { data: data, searchQuery: searchQuery });
-      // res.render({search: search});
+      console.log(newUrl);
+    } else {
+      res.render("serchError");
     }
-    // if(error){
-    //   res.render('searchError',)
-    // }
-    // console.log(search[0]);
   });
 };
