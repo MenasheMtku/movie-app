@@ -14,17 +14,21 @@
           <p>Results for <span><%= searchQuery %></span></p>
           <div class="flex-container">
             <div class="movies">
-              <% data["results"].forEach(function(movie){ %>
-
+              <% data["results"].forEach(function(movie){ %> <% if
+              (movie["poster_path"]==null) { %> <% return %> <% } %>
               <div class="movie-item">
-                <div class="movie-rating">
-                  <p>HQ</p>
+                <div class="circle">
+                  <div class="movie-rating">
+                    <p>HQ</p>
+                  </div>
                 </div>
-                <img
-                  class="movie-image"
-                  loading="lazy"
-                  src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/<%=movie['poster_path']%>"
-                />
+                <a href="/movie/<%=movie['id']%><%=key%>">
+                  <img
+                    class="movie-image"
+                    loading="lazy"
+                    src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/<%=movie['poster_path']%>"
+                  />
+                </a>
                 <div class="movie-details">
                   <!-- <p><= movie["original_title"] %></p> -->
                   <!-- <small><= movie["release_date"]%></small> -->
@@ -36,6 +40,7 @@
           </div>
         </div>
       </div>
+      <%- include('partials/footer') %>
     </div>
   </body>
 </html>

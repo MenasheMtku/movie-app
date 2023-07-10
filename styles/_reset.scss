@@ -11,14 +11,31 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(29, 30, 29);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #cecaca;
+}
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  // margin-bottom: 1rem;
-  font-size: 2rem;
+  // text-wrap: balance;
 }
 
 ul {

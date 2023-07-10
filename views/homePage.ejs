@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  <body>
+    <div class="background">
+      <header><%- include ('partials/header') %></header>
+      <div class="container">
+        <div class="flex-container">
+          <div class="category-name py-1">
+            <h2>Trending Movies</h2>
+          </div>
+          <div class="movies">
+            <% data["results"].forEach(function(movie){ %>
+            <div class="flex-movie-card">
+              <div class="movie-item">
+                <div class="overview">
+                  <h3>Overview:</h3>
+                  <p><%=movie['overview'].toUpperCase()%></p>
+                </div>
+                <div class="circle">
+                  <div class="movie-rating"><%=movie['vote_average']%></div>
+                </div>
+                <a href="<%= base %>movie/<%=movie['id']%><%=key%>">
+                  <img
+                    class="movie-image"
+                    loading="lazy"
+                    src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/<%=movie['poster_path']%>"
+                  />
+                </a>
+              </div>
+              <div class="movie-details">
+                <div class="movie-name">
+                  <h4>
+                    <a href="#" class="name"><%= movie["original_title"] %></a>
+                  </h4>
+                </div>
+                <div class="movie-release-date">
+                  <small><%= movie["release_date"]%></small>
+                </div>
+                <div class="movie-id">
+                  <p class="movie_id"><%= movie["id"]%></p>
+                </div>
+              </div>
+            </div>
+            <!-- </form> -->
+            <% }) %>
+          </div>
+        </div>
+      </div>
+      <%- include('partials/footer') %>
+    </div>
+    <script src="js/homePage.js"></script>
+  </body>
+</html>

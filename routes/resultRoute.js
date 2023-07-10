@@ -1,8 +1,7 @@
-const express = require('express'),
-router = express.Router(),
-resultRoute  = require('../controllers/resultCtrl');
+const express = require("express");
+const router = express.Router();
+const resultRoute = require("../controllers/resultCtrl");
 
-
-router.get('/', resultRoute.resultRoute);
+router.get("/", resultRoute.resultRoute);
 
 module.exports = router;
