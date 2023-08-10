@@ -1,3 +1,5 @@
+@import "config";
+
 // reset
 *,
 *::after,
@@ -29,18 +31,13 @@ html {
   border-radius: 20px;
   background: rgb(102, 105, 102);
 }
-
-/* Handle on hover */
-// ::-webkit-scrollbar-thumb:hover {
-//   background: #cecaca;
-// }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  // text-wrap: balance;
+body {
+  font-family: $font;
+  color: #fff;
+  // min-height: 100%;
+  min-height: 100vh;
+  line-height: 1.6;
+  background-color: #333;
 }
 
 ul {

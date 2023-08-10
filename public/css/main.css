@@ -30,7 +30,14 @@ html {
   background: rgb(102, 105, 102);
 }
 
-/* Handle on hover */
+body {
+  font-family: "DM Sans", sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  line-height: 1.6;
+  background-color: #333;
+}
+
 ul {
   list-style: none;
 }
@@ -336,14 +343,6 @@ a {
 .serach-container .flex-movies .movie-card a {
   text-decoration: none;
   color: #fff;
-}
-
-body {
-  font-family: "DM Sans", sans-serif;
-  color: #fff;
-  min-height: 100vh;
-  line-height: 1.6;
-  background-color: #333;
 }
 
 #main-nav {

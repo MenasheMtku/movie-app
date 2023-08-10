@@ -4,15 +4,6 @@
 @import "results";
 @import "search";
 
-body {
-  font-family: $font;
-  color: #fff;
-  // min-height: 100%;
-  min-height: 100vh;
-  line-height: 1.6;
-  background-color: #333;
-}
-
 #main-nav {
   position: sticky;
   top: 0;

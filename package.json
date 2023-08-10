@@ -6,7 +6,8 @@
   "scripts": {
     "sass-watch": "sass --no-source-map --watch styles/main.scss public/css/main.css",
     "nodemon-watch": "nodemon app.js -e *",
-    "dev": "npm-run-all --parallel sass-watch nodemon-watch"
+    "dev": "npm-run-all --parallel sass-watch nodemon-watch",
+    "build": "node app.js"
   },
   "author": "MenasheMtku",
   "license": "ISC",
@@ -14,9 +15,10 @@
     "body-parser": "^1.20.2",
     "dotenv": "^16.0.2",
     "ejs": "^3.1.8",
-    "express": "^4.18.1",
+    "express": "^4.18.2",
     "node-fetch": "^2.6.12",
-    "sass": "^1.61.0"
+    "sass": "^1.61.0",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22",
