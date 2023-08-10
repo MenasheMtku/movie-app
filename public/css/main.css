@@ -12,24 +12,25 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 1px;
+  width: 2px;
+  height: 7px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  margin: 0;
+  border-radius: 15px;
+  background: #191818;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(29, 30, 29);
+  width: 1px;
+  border-radius: 20px;
+  background: rgb(102, 105, 102);
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #cecaca;
-}
-
 ul {
   list-style: none;
 }
@@ -108,34 +109,67 @@ a {
 .flex-container {
   max-width: 1440px;
   margin: 0 auto;
-  padding-bottom: 4.5rem;
+  padding-bottom: 1rem;
 }
 
 .category-name {
-  font-size: 1.1rem;
+  font-size: 1.8rem;
 }
 
 .movies {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
   column-gap: 0.7rem;
-  row-gap: 0.7rem;
+  row-gap: 0.8rem;
   padding-bottom: 1.6rem;
+}
+
+.media-scroller {
+  display: grid;
+  gap: 0.3rem;
+  grid-auto-flow: column;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1rem 0 0 0;
+  overscroll-behavior-inline: contain;
+}
+.media-scroller .media-element {
+  display: grid;
+  grid-template-rows: min-content;
+  gap: 0.3rem;
+  padding: 0.3rem;
+  background: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px hsla(350, 100%, 43%, 0.3);
+}
+
+.snaps-inline {
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: 1rem;
+}
+.snaps-inline > * {
+  scroll-snap-align: start;
 }
 
 .flex-movie-card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
+  padding: 0.1rem 0.2rem;
 }
-
-.movie-item {
+.movie-img {
   display: grid;
   position: relative;
   overflow: hidden;
   transition: opacity 0.4s ease-in-out;
 }
-.movie-item .circle {
+.movie-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  opacity: 0.9;
+}
+.movie-img .circle {
   position: absolute;
   background-color: hsl(202, 41%, 50%);
   border-radius: 50%;
@@ -146,7 +180,7 @@ a {
   z-index: 1;
   border: 0.2rem solid #eee;
 }
-.movie-item .circle .movie-rating {
+.movie-img .circle .movie-rating {
   position: inherit;
   top: 50%;
   left: 50%;
@@ -159,24 +193,26 @@ a {
 .movie-details {
   display: flex;
   flex-direction: column;
+  width: 100%;
   row-gap: 0.5rem;
-  margin-top: 0.7rem;
+  margin-top: 0.4rem;
 }
-
-.movie-name {
+.movie-details .movie-name {
   max-width: 15ch;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-weight: bold;
   overflow: hidden;
+  font-size: 15px;
+  color: #eee;
+  font-weight: lighter;
 }
-.movie-name a {
+.movie-details .movie-name p {
+  font-size: 15px;
+  font-weight: 400;
+}
+.movie-details .movie-release-date {
+  font-size: 0.6rem;
   color: #fff;
-  font-size: 0.9rem;
-}
-
-.movie-release-date {
-  font-weight: 500;
 }
 
 .movie-item img {
@@ -184,6 +220,7 @@ a {
   height: 100%;
   border-radius: 10px;
   opacity: 0.9;
+  aspect-ratio: 16/9;
 }
 
 .overview {
@@ -207,11 +244,106 @@ a {
   transform: translateX(0);
 }
 
+.movie-id {
+  display: none;
+}
+
+.serach-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+}
+.serach-container .flex-movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  column-gap: 0.7rem;
+  row-gap: 0.8rem;
+  padding-bottom: 1.6rem;
+}
+.serach-container .flex-movies .movie-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0.1rem 0.2rem;
+  overflow: hidden;
+  row-gap: 1rem;
+  transition: opacity 0.4s ease-in-out;
+}
+.serach-container .flex-movies .movie-card .search-movie-img {
+  position: relative;
+  width: fit-content;
+  overflow: hidden;
+}
+.serach-container .flex-movies .movie-card .search-movie-img .image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.serach-container .flex-movies .movie-card .search-movie-img .image-overlay:hover {
+  backdrop-filter: blur(15px);
+}
+.serach-container .flex-movies .movie-card .search-movie-img .image-overlay:hover .s-overview {
+  opacity: 1;
+  transform: translateX(0);
+}
+.serach-container .flex-movies .movie-card .search-movie-img .image-overlay .s-overview {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: hsl(200, 75%, 80%);
+  color: black;
+  padding: 0.5rem;
+  height: 100%;
+  font-size: 1.2rem;
+  z-index: 2;
+  overflow-y: scroll;
+  transform: translateX(101%);
+  transition: transform 0.3s ease-in 0.1s;
+}
+.serach-container .flex-movies .movie-card .search-movie-img .image-overlay .s-overview > p {
+  font-weight: 700;
+}
+.serach-container .flex-movies .movie-card .search-movie-img img {
+  max-width: 100%;
+  height: 100%;
+}
+.serach-container .flex-movies .movie-card .search-movie-details {
+  display: flex;
+  flex-direction: column;
+}
+.serach-container .flex-movies .movie-card .search-movie-details .s-movie-name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.serach-container .flex-movies .movie-card .search-movie-details .inline-det {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+}
+.serach-container .flex-movies .movie-card .search-movie-details .inline-det .s-movie-rating {
+  background-color: hsla(0, 0%, 100%, 0.2);
+  margin: 0.8rem 1rem;
+  color: #eee;
+}
+.serach-container .flex-movies .movie-card a {
+  text-decoration: none;
+  color: #fff;
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "DM Sans", sans-serif;
   color: #fff;
   min-height: 100vh;
   line-height: 1.6;
+  background-color: #333;
 }
 
 #main-nav {
@@ -256,14 +388,15 @@ body {
   font-weight: 300;
 }
 
-.background {
+.Wrapper {
   background: url(../img/netflix.jpg) no-repeat center center/cover;
   min-height: 100vh;
   width: 100%;
+  margin-inline: auto;
   position: relative;
   z-index: 0;
 }
-.background::after {
+.Wrapper::after {
   content: "";
   position: absolute;
   left: 0;
@@ -297,7 +430,7 @@ body {
 }
 
 #footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   background: #222831;
@@ -311,7 +444,7 @@ body {
   justify-content: center;
   column-gap: 1.4rem;
   align-items: center;
-  margin: 18px 0;
+  padding: 18px 0;
 }
 #footer .footer-content .social a {
   text-decoration: none;
@@ -334,7 +467,7 @@ body {
     grid-template-columns: repeat(6, 1fr);
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 912px) {
   .movies {
     grid-template-columns: repeat(5, 1fr);
   }
@@ -369,5 +502,10 @@ body {
   }
   .movies {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 320px) {
+  .movies {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

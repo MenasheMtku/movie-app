@@ -1,0 +1,111 @@
+//  Search Page
+
+.serach-container {
+  max-width: $website-width;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+  // padding: 15px 10%;
+
+  .flex-movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax((240px), 1fr));
+    column-gap: 0.7rem;
+    row-gap: 0.8rem;
+    padding-bottom: 1.6rem;
+
+    .movie-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      padding: 0.1rem 0.2rem;
+      overflow: hidden;
+      row-gap: 1rem;
+      transition: opacity 0.4s ease-in-out;
+
+      .search-movie-img {
+        position: relative;
+        width: fit-content;
+        overflow: hidden;
+
+        .image-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            backdrop-filter: blur(15px);
+          }
+
+          &:hover .s-overview {
+            opacity: 1;
+            transform: translateX(0);
+            // filter: brightness(100%);
+          }
+          .s-overview {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: hsl(200deg, 75%, 80%);
+            color: darken($--background, 90%);
+            padding: 0.5rem;
+            height: 100%;
+            font-size: 1.2rem;
+            z-index: 2;
+            // overflow: hidden;
+            overflow-y: scroll;
+            // border-radius: 0 0 5px 5px;
+            transform: translateX(101%);
+            transition: transform 0.3s ease-in 0.1s;
+
+            & > p {
+              font-weight: 700;
+            }
+          }
+        }
+
+        img {
+          // display: block;
+          max-width: 100%;
+          height: 100%;
+        }
+      }
+      .search-movie-details {
+        display: flex;
+        flex-direction: column;
+
+        .s-movie-name {
+          font-size: 1rem;
+          font-weight: 600;
+        }
+
+        .inline-det {
+          display: inline-flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          padding-top: 0.5rem;
+
+          .s-movie-rating {
+            background-color: $--white-alpha-20;
+            margin: 0.8rem 1rem;
+            color: #eee;
+          }
+        }
+      }
+      // .movie-card:hover .s-overview {
+      //   opacity: 1;
+      //   transform: translateX(0);
+      // }
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+  }
+}

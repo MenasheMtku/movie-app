@@ -1,0 +1,36 @@
+<div class="flex-container">
+  <div class="category-name py-1">
+    <h2><%= subtitle %> Movies</h2>
+  </div>
+  <div class="movies">
+    <% data["results"].forEach(function(movie){ %>
+    <div class="flex-movie-card">
+      <a href="<%=base%>/movie/<%=movie['id']%>?api_key=<%=key%>">
+        <div class="movie-img">
+          <img
+            loading="lazy"
+            src="https://image.tmdb.org/t/p/w600_and_h900_bestv2<%=movie['poster_path']%>"
+          />
+          <div class="circle">
+            <div class="movie-rating"><%=movie['vote_average']%></div>
+          </div>
+        </div>
+      </a>
+      <div class="movie-details">
+        <div class="movie-name">
+          <p><%= movie["title"] %></p>
+        </div>
+        <div>
+          <p class="movie-release-date">
+            <span><%= movie["release_date"]%></span>
+          </p>
+        </div>
+        <div class="movie-id">
+          <p class="movie_id"><%= movie["id"]%></p>
+        </div>
+      </div>
+    </div>
+
+    <% }) %>
+  </div>
+</div>

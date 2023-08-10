@@ -4,7 +4,7 @@
     grid-template-columns: repeat(6, 1fr);
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 912px) {
   .movies {
     grid-template-columns: repeat(5, 1fr);
   }
@@ -46,5 +46,11 @@
 
   .movies {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 320px) {
+  .movies {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

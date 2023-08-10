@@ -2,19 +2,17 @@
 @import "utilities";
 @import "config";
 @import "results";
+@import "search";
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: $font;
   color: #fff;
   // min-height: 100%;
   min-height: 100vh;
   line-height: 1.6;
+  background-color: #333;
 }
 
-// #wrapper {
-//   width: 100%;
-//   position: relative;
-// }
 #main-nav {
   position: sticky;
   top: 0;
@@ -67,10 +65,13 @@ body {
   }
 }
 
-.background {
+.Wrapper {
   background: url(../img/netflix.jpg) no-repeat center center/cover;
   min-height: 100vh;
   width: 100%;
+  // width: min(75rem, 100% - 1rem);
+  margin-inline: auto;
+
   position: relative;
   z-index: 0;
 
@@ -82,57 +83,10 @@ body {
     bottom: 0;
     min-height: 100%;
     width: 100%;
-    // background-color: black;
-    // opacity: 0.7;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: -1;
   }
 }
-
-#form-info {
-  // color: #555;
-  // display: flex;
-  // padding: 2px;
-  // border: 1px solid white;
-  // border-radius: 5px;
-}
-// input[type="search"] {
-//   border: none;
-//   background: transparent;
-//   margin: 0;
-//   padding: 7px 8px;
-//   font-size: 14px;
-//   color: inherit;
-//   border: 1px solid transparent;
-//   border-radius: inherit;
-// }
-
-// input[type="search"]::placeholder {
-//   color: #bbb;
-// }
-
-// button[type="submit"] {
-//   text-indent: -999px;
-//   overflow: hidden;
-//   width: 40px;
-//   padding: 0;
-//   margin: 0;
-//   color: #fff;
-//   border: 1px solid transparent;
-//   border-radius: inherit;
-//   background: white url(/public/img/magnifying-glass_24px.png) no-repeat center;
-//   cursor: pointer;
-//   opacity: 0.7;
-// }
-
-// button[type="submit"]:hover {
-//   opacity: 1;
-// }
-// #form-info h1 {
-//   text-transform: uppercase;
-//   letter-spacing: 0.4rem;
-//   color: hsl(331, 57%, 46%);
-// }
 
 #form-info {
   display: block;
@@ -154,14 +108,9 @@ body {
   padding: 10px 20px;
 }
 
-#form-info .form-input .btn {
-  // margin-top: 10px;
-  // padding: 10px 15px;
-}
-
 // footer
 #footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   background: $dark-color;
@@ -175,7 +124,7 @@ body {
     justify-content: center;
     column-gap: 1.4rem;
     align-items: center;
-    margin: 18px 0;
+    padding: 18px 0;
     // height: 5rem;
     // padding: 15px 10%;
 

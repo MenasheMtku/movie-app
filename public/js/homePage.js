@@ -1,24 +1,35 @@
 console.log("HomePage JS is ON!");
 
-const movieItemEL = document.querySelectorAll(".movie-item");
+const scrollContainer = document.querySelector(".media-scroller");
+const movieItemEL = document.querySelectorAll(".movie-img");
 const ratingCircleEL = document.querySelectorAll(".circle");
+const movieNameEL = document.querySelectorAll(".name");
 const ratingEL = document.querySelectorAll(".movie-rating");
 const movieIdEL = document.querySelectorAll(".movie_id");
+const realesDateEL = document.querySelectorAll(".movie-release-date");
 
-const movieNameEL = document.querySelectorAll(".name");
+// scrollContainer.addEventListener("wheel", evt => {
+//   evt.preventDefault();
+//   // console.log(scrollContainer);
+//   scrollContainer.scrollLeft += evt.deltaY;
+// });
 
-const roundVote = vote => {
-  const rounded = Math.round(vote * 10) / 10;
+const getYear = date => {
+  const dateParts = date.split("-");
+  console.log(dateParts);
+  // console.log(dateParts);
+  // const movieYear = dateParts[0].replace(/\s/g, "");
 
-  return rounded;
+  return movieYear;
 };
 
 for (let i = 0; i < movieItemEL.length; i++) {
-  const round = roundVote(ratingEL[i].textContent);
-  console.log(movieNameEL[i].textContent, round, movieIdEL[i].textContent);
-  // console.log(round);
+  const round = ratingEL[i].textContent.slice(0, 3);
+  const year = realesDateEL[i].textContent.trim().slice(0, 4);
 
   ratingEL[i].textContent = round;
+  realesDateEL[i].textContent = year;
+  // console.log(realesDateEL[i].textContent.trim());
 
   if (round >= 8) {
     ratingCircleEL[i].style.backgroundColor = "#8fbc8f";

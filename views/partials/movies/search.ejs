@@ -1,0 +1,42 @@
+<!-- <p>Results for <span>< searchQuery %></span></p> -->
+<div class="serach-container">
+  <div class="category-name py-1">
+    <h3>Results for: <%= searchQuery.toUpperCase() %></h3>
+  </div>
+  <div class="flex-movies">
+    <% data["results"].forEach(function(movie){ %> <% if
+    (movie["poster_path"]===null || movie['overview'] ==='' ) { %> <% return %>
+    <% } %>
+
+    <div class="movie-card">
+      <div class="search-movie-img">
+        <div class="image-overlay">
+          <div class="s-overview">
+            <p>Overview:</p>
+            <%=movie['overview']%>
+          </div>
+        </div>
+        <img
+          loading="eager"
+          src="https://image.tmdb.org/t/p/w600_and_h900_bestv2<%=movie['poster_path']%>"
+        />
+      </div>
+
+      <a href="<%=base%>/movie/<%=movie['id']%>?api_key=<%=key%>">
+        <div class="search-movie-details">
+          <div class="s-movie-name">
+            <p><%= movie["title"] %></p>
+          </div>
+          <div class="inline-det">
+            <div class="s-movie-release-date">
+              <p><%= movie["release_date"]%></p>
+            </div>
+            <div class="s-movie-rating"><%=movie['vote_average']%></div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <% }) %>
+  </div>
+</div>
