@@ -23,7 +23,7 @@ exports.homeRoute = async (req, res) => {
     .then(res => res.json())
     .then(data =>
       res.render(
-        "homepage",
+        "homePage",
         { data: data, base: baseurl, key: key, subtitle: "Discover" }
         // console.log(Object.keys(data)),
         // ([page, results, total_p, total_r] = Object.values(data)),
